@@ -108,7 +108,6 @@ module "VPC_Security_Group" {
 module "from_sg" {
     source       = "./modules/sg_rule"
     type         = "ingress"
-    cidr_blocks  = [""]
     from_port    = 0
     to_port      = 0
     protocol     = "-1"
@@ -123,7 +122,6 @@ module "ssh_all_ingress" {
     to_port      = 22
     protocol     = "tcp"
     source_sg_id = module.VPC_Security_Group.sg_id
-    sg_id        = ""
 }
 module "all_egress" {
     source       = "./modules/sg_rule"
@@ -133,7 +131,6 @@ module "all_egress" {
     to_port      = 0
     protocol     = "-1"
     source_sg_id = module.VPC_Security_Group.sg_id
-    sg_id        = ""
 }
 
 # Public Instance
