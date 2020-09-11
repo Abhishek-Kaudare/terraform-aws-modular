@@ -106,7 +106,7 @@ module "VPC_Security_Group" {
 
 # SG Rules
 module "from_sg" {
-    source       = "./modules/sg_rule"
+    source       = "./modules/sg_rule_nat"
     type         = "ingress"
     from_port    = 0
     to_port      = 0
