@@ -13,6 +13,6 @@ variable "to_port" {
 variable "protocol" {
     type = string
 }
-variable "source_sg_id" {
+variable "sg_id" {
     type = string
 }

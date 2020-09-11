@@ -121,7 +121,7 @@ module "ssh_all_ingress" {
     from_port    = 22
     to_port      = 22
     protocol     = "tcp"
-    source_sg_id = module.VPC_Security_Group.sg_id
+    sg_id = module.VPC_Security_Group.sg_id
 }
 module "all_egress" {
     source       = "./modules/sg_rule"
@@ -130,7 +130,7 @@ module "all_egress" {
     from_port    = 0
     to_port      = 0
     protocol     = "-1"
-    source_sg_id = module.VPC_Security_Group.sg_id
+    sg_id = module.VPC_Security_Group.sg_id
 }
 
 # Public Instance
@@ -164,7 +164,7 @@ module "private_instance" {
 # Create subnet group for RDS
 resource "aws_db_subnet_group" "default_group" {
     name       = var.dsg_name
-    subnet_ids = [module.private_1_subnet.subnet_id,module.private_1_subnet.subnet_id]
+    subnet_ids = [module.private_1_subnet.subnet_id,module.private_2_subnet.subnet_id]
 }
 
 # RDS Instance
