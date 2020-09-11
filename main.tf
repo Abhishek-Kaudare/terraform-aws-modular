@@ -76,18 +76,21 @@ module "private_route" {
 
 # Associate subnet public_subnet to public route table
 module "public_subnet_association" {
+    source          = "./modules/rt_association"
     subnet_id       = module.public_subnet.subnet_id
     route_table_id  = module.vpc.vpc_route_table_id
 }
 
 # Associate subnet private_1_subnet to private route table
 module "pvt_1_subnet_association" {
+    source          = "./modules/rt_association"
     subnet_id       = module.private_1_subnet.subnet_id
     route_table_id  = module.private_route_table.rt_id
 }
 
 # Associate subnet private_2_subnet to private route table
 module "pvt_2_subnet_association" {
+    source          = "./modules/rt_association"
     subnet_id       = module.private_2_subnet.subnet_id
     route_table_id  = module.private_route_table.rt_id
 }
