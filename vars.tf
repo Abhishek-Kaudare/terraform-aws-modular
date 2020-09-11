@@ -12,6 +12,9 @@ variable "name_prefix" {
 }
 
 # vpc vars
+variable "cidr" {
+    type = string
+}
 variable "dns_support_bool" {
     type = bool
 }

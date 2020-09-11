@@ -1,3 +1,3 @@
 output "subnet_id" {
-  value = aws_vpc.subnet_demo.id
+  value = aws_subnet.subnet_demo.id
 }
