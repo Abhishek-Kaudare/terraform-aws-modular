@@ -108,7 +108,7 @@ module "VPC_Security_Group" {
 module "from_sg" {
     source       = "./modules/sg_rule"
     type         = "ingress"
-    cidr_blocks  = ""
+    cidr_blocks  = [""]
     from_port    = 0
     to_port      = 0
     protocol     = "-1"
@@ -118,7 +118,7 @@ module "from_sg" {
 module "ssh_all_ingress" {
     source       = "./modules/sg_rule"
     type         = "ingress"
-    cidr_blocks  = [internet_cidr_block]
+    cidr_blocks  = [var.internet_cidr_block]
     from_port    = 22
     to_port      = 22
     protocol     = "tcp"
@@ -128,7 +128,7 @@ module "ssh_all_ingress" {
 module "all_egress" {
     source       = "./modules/sg_rule"
     type         = "egress"
-    cidr_blocks  = [internet_cidr_block]
+    cidr_blocks  = [var.internet_cidr_block]
     from_port    = 0
     to_port      = 0
     protocol     = "-1"

@@ -2,7 +2,7 @@ variable "type" {
     type = string
 }
 variable "cidr_blocks" {
-    type = string
+    type = list
 }
 variable "from_port" {
     type = number

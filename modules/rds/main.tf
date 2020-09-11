@@ -26,7 +26,7 @@ resource "aws_db_instance" "rds_demo" {
 
     # Security And Accessibility
     publicly_accessible     = var.publicly_accessible
-    vpc_security_group_ids  = [aws_security_group.VPC_Security_Group.id]
+    vpc_security_group_ids  = var.vpc_security_group_ids
 
     # Storage Conf
     storage_encrypted       = var.storage_encrypted
