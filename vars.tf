@@ -18,9 +18,6 @@ variable "dns_support_bool" {
 variable "dns_hostnames_bool" {
     type = bool
 }
-variable "vpc_name" {
-    type = string
-}
 
 # route vars
 variable "internet_cidr_block" {
