@@ -66,12 +66,14 @@ module "internet_access" {
     rt_id       = module.vpc.vpc_route_table_id
     cidr_block  = var.internet_cidr_block
     ig_id       = module.igw.ig_id
+    nat_id      = ""
 }
 module "private_route" {
-    source                  = "./modules/routes"
-	route_table_id          = module.private_route_table.rt_id
-	destination_cidr_block  = var.internet_cidr_block
-	nat_gateway_id          = module.nat.nat_id
+    source          = "./modules/routes"
+	rt_id           = module.private_route_table.rt_id
+	cidr_block      = var.internet_cidr_block
+    ig_id           = ""
+	nat_id          = module.nat.nat_id
 }
 
 # Associate subnet public_subnet to public route table

@@ -10,3 +10,7 @@ variable "ig_id" {
     type = string
 }
 
+variable "nat_id" {
+    type = string
+}
+
